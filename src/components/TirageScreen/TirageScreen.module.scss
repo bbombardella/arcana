@@ -1,0 +1,49 @@
+@use '@styles/mixins' as *;
+
+.screen {
+  @include flex-col-center;
+  width: 100%;
+}
+
+.spreadSelector {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.cross {
+  display: grid;
+  grid-template-columns: repeat(3, clamp(115px, 25vw, 170px));
+  grid-template-rows: repeat(3, auto);
+  gap: 0.5rem;
+  place-items: center;
+  margin: 1rem 0;
+}
+
+.spread {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.cardSlot {
+  @include flex-col-center;
+  gap: 0.4rem;
+}
+
+.positionLabel {
+  @include parchment(0.7rem);
+  opacity: 0.7;
+}
+
+.drawBtn {
+  margin-top: 0.5rem;
+}
+
+.spreadReadingBtn {
+  margin-top: 1rem;
+}

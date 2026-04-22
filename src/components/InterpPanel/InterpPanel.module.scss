@@ -1,0 +1,24 @@
+@use '@styles/mixins' as *;
+
+.panel {
+  @include panel;
+  width: 100%;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.title {
+  @include cinzel(0.8rem);
+  margin-bottom: 0.8rem;
+}
+
+.text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--starlight);
+  font-style: italic;
+
+  &.error {
+    color: var(--crimson);
+  }
+}

@@ -1,0 +1,26 @@
+@mixin cinzel($size: 0.8rem, $color: var(--gold)) {
+  font-family: "Cinzel Decorative", serif;
+  font-size: $size;
+  color: $color;
+  letter-spacing: 0.1em;
+}
+
+@mixin parchment($size: 0.85rem) {
+  font-size: $size;
+  color: var(--parchment);
+  font-style: italic;
+}
+
+@mixin panel {
+  background: var(--deep);
+  border: 1px solid var(--gold-dim);
+  border-radius: 4px;
+  padding: 1.2rem;
+}
+
+@mixin flex-col-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+

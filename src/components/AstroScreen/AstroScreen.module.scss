@@ -1,0 +1,55 @@
+@use '@styles/mixins' as *;
+
+.screen {
+  @include flex-col-center;
+  width: 100%;
+}
+
+.intro {
+  @include parchment(0.9rem);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.8rem;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.sign {
+  @include panel;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    border-color: var(--gold);
+    background: var(--mist);
+  }
+
+  &.active {
+    background: var(--mist);
+    border-color: var(--gold);
+    box-shadow: 0 0 15px var(--glow);
+  }
+}
+
+.symbol {
+  font-family: "Segoe UI Symbol", "Apple Symbols", serif;
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.signName {
+  @include cinzel(0.55rem);
+}
+
+.dates {
+  font-size: 0.65rem;
+  color: var(--parchment);
+  margin-top: 0.2rem;
+}

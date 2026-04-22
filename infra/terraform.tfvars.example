@@ -1,0 +1,11 @@
+aws_region             = "eu-west-3"
+project_name           = "arcana"
+environment            = "production"
+cloudfront_price_class = "PriceClass_100"
+
+tags = {
+  Project     = "arcana"
+  Module      = "spa"
+  Environment = "production"
+  ManagedBy   = "terraform"
+}

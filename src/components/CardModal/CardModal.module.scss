@@ -1,0 +1,141 @@
+@use '@styles/mixins' as *;
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 8, 18, 0.88);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal {
+  background: var(--deep);
+  border: 1px solid var(--gold-dim);
+  border-radius: 6px;
+  padding: 1.5rem;
+  max-width: 560px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  color: var(--parchment);
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0.6;
+  line-height: 1;
+  padding: 0.25rem;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.image {
+  width: clamp(110px, 28vw, 160px);
+  object-fit: contain;
+  object-position: center;
+  border-radius: 5px;
+  border: 1px solid var(--gold);
+  display: block;
+  flex-shrink: 0;
+  margin: 0 auto;
+  height: fit-content;
+  align-self: center;
+
+  &.reversed {
+    transform: rotate(180deg);
+  }
+}
+
+.info {
+  flex: 1;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.label {
+  font-size: 0.7rem;
+  color: var(--parchment);
+  font-style: italic;
+  opacity: 0.7;
+  margin: 0;
+}
+
+.name {
+  font-family: "Cinzel Decorative", serif;
+  color: var(--gold);
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.reversedBadge {
+  font-size: 0.7rem;
+  color: var(--crimson);
+  font-style: italic;
+}
+
+.keywords {
+  font-size: 0.8rem;
+  color: var(--parchment);
+  font-style: italic;
+  opacity: 0.85;
+  margin: 0;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--gold-dim);
+  opacity: 0.4;
+}
+
+.interpretation {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--starlight);
+  font-style: italic;
+  margin: 0;
+
+  &.error {
+    color: var(--crimson);
+  }
+}
+
+.oracleBtn {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid var(--amethyst);
+  color: var(--amethyst);
+  font-family: "Cinzel Decorative", serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 2px;
+  margin-top: 0.25rem;
+
+  &:hover {
+    background: rgba(107, 63, 160, 0.15);
+    box-shadow: 0 0 15px rgba(107, 63, 160, 0.3);
+  }
+}

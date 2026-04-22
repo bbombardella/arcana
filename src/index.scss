@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap");
+
+html {
+  font-size: 18px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --ink: #0a0812;
+  --deep: #110e1c;
+  --veil: #1a1530;
+  --mist: #241e3a;
+  --bone: #e8dfc8;
+  --parchment: #c8b99a;
+  --gold: #c9a84c;
+  --gold-dim: #7a5c1e;
+  --crimson: #8b1a2f;
+  --amethyst: #6b3fa0;
+  --starlight: #d4c9f0;
+  --glow: rgba(201, 168, 76, 0.15);
+}
+
+body {
+  background: var(--ink);
+  color: var(--bone);
+  font-family: "Crimson Pro", Georgia, serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.app {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  text-align: center;
+  padding: 2.5rem 1rem 1rem;
+}
+
+header h1 {
+  font-family: "Cinzel Decorative", serif;
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  text-shadow: 0 0 30px rgba(201, 168, 76, 0.4);
+}
+
+header p {
+  font-style: italic;
+  color: var(--parchment);
+  font-size: 1rem;
+  margin-top: 0.4rem;
+  opacity: 0.8;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+nav button,
+nav a {
+  background: transparent;
+  border: 1px solid var(--gold-dim);
+  color: var(--parchment);
+  font-family: "Cinzel Decorative", serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 2px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+nav button:hover,
+nav button.active,
+nav a:hover,
+nav a.active {
+  background: var(--glow);
+  border-color: var(--gold);
+  color: var(--gold);
+  box-shadow: 0 0 15px var(--glow);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 1rem 4rem;
+  max-width: 900px;
+  width: 100%;
+}
+
+/* Shared UI primitives */
+.draw-btn {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: "Cinzel Decorative", serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  padding: 0.8rem 2rem;
+  cursor: pointer;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.draw-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--glow);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.draw-btn:hover::after {
+  opacity: 1;
+}
+
+.draw-btn:hover {
+  box-shadow: 0 0 25px var(--glow), 0 0 5px rgba(201, 168, 76, 0.3);
+}
+
+.draw-btn:active {
+  transform: scale(0.97);
+}
+
+.draw-btn.active-spread {
+  background: var(--glow);
+  border-color: var(--gold);
+  box-shadow: 0 0 10px var(--glow);
+}
+
+.oracle-btn {
+  background: var(--crimson);
+  border: 1px solid rgba(139, 26, 47, 0.5);
+  color: var(--bone);
+  font-family: "Cinzel Decorative", serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 2px;
+}
+
+.oracle-btn:hover {
+  background: #a01f38;
+  box-shadow: 0 0 20px rgba(139, 26, 47, 0.4);
+}
+
+.oracle-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.separator {
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+  margin: 1rem 0;
+}
+
+.small-note {
+  font-size: 0.75rem;
+  color: var(--parchment);
+  opacity: 0.6;
+  font-style: italic;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.mode-toggle {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--parchment);
+  margin-bottom: 0.5rem;
+  cursor: default;
+}
+
+.toggle-sw {
+  width: 36px;
+  height: 18px;
+  background: var(--mist);
+  border: 1px solid var(--gold-dim);
+  border-radius: 9px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s;
+}
+
+.toggle-sw.on {
+  background: var(--amethyst);
+  border-color: var(--amethyst);
+}
+
+.toggle-knob {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--bone);
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: left 0.3s;
+}
+
+.toggle-sw.on .toggle-knob {
+  left: 20px;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes floatup {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: floatup 0.5s ease forwards;
+}
+
+.screen-wrapper {
+  width: 100%;
+}
