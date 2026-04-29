@@ -1,6 +1,7 @@
 aws_region             = "eu-west-3"
 project_name           = "arcana"
 environment            = "production"
+domain_name            = "arcana.example.com"
 cloudfront_price_class = "PriceClass_100"
 
 tags = {
